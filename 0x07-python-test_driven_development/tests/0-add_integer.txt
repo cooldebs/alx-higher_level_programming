@@ -1,0 +1,115 @@
+# The '0-add_integer' module
+============================
+
+``add_integer(a, b=98)`` returns the addition
+of two integers
+-----------------------------
+
+Import the function from the module:
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Check for positive integers:
+    >>> add_integer(1, 2)
+    3
+
+Check for negative integers:
+    >>> add_integer(-1, -1)
+    -2
+
+Check for positive and negative integer:
+    >>> add_integer(100, -2)
+    98
+
+Check for negative and positive integer:
+    >>> add_integer(-2, 100)
+    98
+
+Check for a single positive integer:
+    >>> add_integer(2)
+    100
+
+Check for a single negative integer:
+    >>> add_integer(-2)
+    96
+
+Check for positive floats:
+    >>> add_integer(100.8, 50.7)
+    150
+
+Check for negative floats:
+    >>> add_integer(-3.6, -2.5)
+    -5
+
+Check for a positive float and a positive integer:
+    >>> add_integer(2.5, 1)
+    3
+
+Check for a positive float and a negative integer:
+    >>> add_integer(100.3, -2)
+    98
+
+Check for negative float and positive integer:
+    >>> add_integer(-5.6, 1)
+    -4
+
+Check for negative float and negative integer:
+    >>> add_integer(-3.7, -1)
+    -4
+
+Check for integer and string:
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Check for None:
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Check for strings:
+    >>> add_integer("lol", "damn")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Check for module documentation:
+    >>> len(__import__("0-add_integer").__doc__) > 1
+    True
+
+Check for function documentation:
+    >>> len(__import__("0-add_integer").add_integer.__doc__) > 1
+    True
+
+Check infinity:
+    >>> add_integer(float('inf'), 1)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(2, float("inf"))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> add_integer(float("-inf"), 56)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(5, float("-inf"))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Check for nan:
+    >>> add_integer(float('nan'), 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(4, float('nan'))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer

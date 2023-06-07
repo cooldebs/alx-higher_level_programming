@@ -1,0 +1,53 @@
+The ``5-text_indentation`` module
+=================================
+
+Function: ``text_indentation(text)``
+Prints a text with 2 new lines after each of these characters: ., ? and :
+-------------------------------------------------------------------------
+
+Import ``text_indentation`` from module ``5-text_indentation``
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Check for module docstring:
+    >>> len((__import__("5-text_indentation").__doc__).splitlines()) > 1
+    True
+
+Check for function docstring:
+    >>> len((text_indentation.__doc__).splitlines()) > 1
+    True
+
+Check if text is string:
+    >>> text_indentation("Is there an end?There is no end:to the suffering, stay pretty.     Deb")
+    Is there an end?
+    <BLANKLINE>
+    There is no end:
+    <BLANKLINE>
+    to the suffering, stay pretty.
+    <BLANKLINE>
+    Deb
+
+Check if string starts with a newline:
+    >>> text_indentation("\n  Is there an end?       There is no end     :to the suffering, stay pretty. Deb")
+    <BLANKLINE>
+      Is there an end?
+    <BLANKLINE>
+    There is no end:
+    <BLANKLINE>
+    to the suffering, stay pretty.
+    <BLANKLINE>
+    Deb
+
+Check for non-string argument:
+    >>> text_indentation(419)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Check for special symbols:
+    >>> text_indentation("    .?    :      ")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>

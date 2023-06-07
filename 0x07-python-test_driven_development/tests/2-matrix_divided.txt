@@ -1,0 +1,80 @@
+The ``2-matrix_divided`` module
+===============================
+
+Contains function: ``matrix_divided``
+Returns division of the matrix
+-------------------------------------
+
+Import the function from the module:
+    >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Check for module docstring:
+    >>> len(__import__("2-matrix_divided").__doc__) > 1
+    True
+
+Check for function docstring:
+    >>> len(matrix_divided.__doc__) > 1
+    True
+
+Check for one row in matrix:
+    >>> matrix_divided([[2, 4, 6]], 2)
+    [[1.0, 2.0, 3.0]]
+
+Check for two rows:
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12]], 2)
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+Check for 2 decimal place approximation:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Check for more than 2 rows:
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12], [14, 16, 18]], 2)
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]]
+
+Check for single array matrix:
+    >>> matrix_divided([2, 4, 6], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Check if matrix contain non int and float values:
+    >>> matrix_divided([[2, 4, 6], [True, None, "wireless"]], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Check if matrix contains a mix of int, float and non-int and non-float types:
+    >>> matrix_divided([[2, "lol", 6.5], [(4, 6, 8), {"name": "xz", "age": 20}, None]], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Check if each row of the matrix are not the same size:
+    >>> matrix_divided([[2, 4, 6], [1, 4, 6, 7]], 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+Check if div is not an int or a float:
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12]], "lol")
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+Check if div is 0:
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12]], 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+Check for less than two arguments passed:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
