@@ -67,7 +67,7 @@ class Base:
         try:
             with open(filename, mode='r', encoding="utf-8") as f:
                 x = cls.from_json_string(f.read())
-                list_instance = []
+                list_instances = []
                 for inst in x:
                     list_instances.append(cls.create(**inst))
                 return (list_instances)
